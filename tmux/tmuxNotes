@@ -1,0 +1,18 @@
+C-b % #split screen left/right
+C-b "" #split screen top/bottom
+C-b arrow # move between panes
+C-b c # create new window
+p # return to previous window
+n # go to next window 
+<number> #go to window associated with number in status bar.
+d # detach
+? # list of available commands
+z # go to/return from full screen
+C-arrow # resize window by a tick
+
+tmux ls # show running sessions
+tmux attach -t <session id> # attach to session
+tmux new -s example-session
+tmux rename-session -t 0 database # rename existing session
+
+
