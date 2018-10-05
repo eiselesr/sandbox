@@ -3,10 +3,9 @@ https://resin.io/blog/building-arm-containers-on-any-x86-machine-even-dockerhub/
 build docker arm containers 
 
 https://blog.hypriot.com/post/setup-simple-ci-pipeline-for-arm-images/
-	1. 
-COPY qemu-arm-static /usr/bin/qemu-arm-static
-	2. 
-docker run --rm --privileged multiarch/qemu-user-static:register --reset
+
+1. COPY qemu-arm-static /usr/bin/qemu-arm-static
+1. docker run --rm --privileged multiarch/qemu-user-static:register --reset
 
 
 
