@@ -1,0 +1,449 @@
+
+local: 172.21.20.10
+remote: 172.21.20.11
+tcp_bw:
+    bw              =       4578208 bytes/sec
+    msg_rate        =         71534 /sec
+    msg_size        =            64 bytes
+    send_cost       =  183467949218 ns/GB
+    recv_cost       =  211873298157 ns/GB
+    send_cpus_used  =          86.5 % cpus
+    recv_cpus_used  =            97 % cpus
+tcp_lat:
+    latency        =  246275 ns
+    msg_rate       =    4060 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =    68.5 % cpus
+    rem_cpus_used  =      54 % cpus
+local: 172.21.20.10
+remote: 172.21.20.12
+tcp_bw:
+    bw              =       4682880 bytes/sec
+    msg_rate        =         73170 /sec
+    msg_size        =            64 bytes
+    send_cost       =  178281050057 ns/GB
+    recv_cost       =  212476084112 ns/GB
+    send_cpus_used  =          83.5 % cpus
+    recv_cpus_used  =           100 % cpus
+tcp_lat:
+    latency        =  239378 ns
+    msg_rate       =    4167 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =      61 % cpus
+    rem_cpus_used  =    56.2 % cpus
+local: 172.21.20.10
+remote: 172.21.20.13
+tcp_bw:
+    bw              =       4686464 bytes/sec
+    msg_rate        =         73226 /sec
+    msg_size        =            64 bytes
+    send_cost       =  183877000271 ns/GB
+    recv_cost       =  210179788921 ns/GB
+    send_cpus_used  =            89 % cpus
+    recv_cpus_used  =          98.5 % cpus
+tcp_lat:
+    latency        =  223889 ns
+    msg_rate       =    4466 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =    68.5 % cpus
+    rem_cpus_used  =      45 % cpus
+local: 172.21.20.10
+remote: 172.21.20.14
+tcp_bw:
+    bw              =       4563584 bytes/sec
+    msg_rate        =         71306 /sec
+    msg_size        =            64 bytes
+    send_cost       =  196280643529 ns/GB
+    recv_cost       =  219126020251 ns/GB
+    send_cpus_used  =          92.5 % cpus
+    recv_cpus_used  =           100 % cpus
+tcp_lat:
+    latency        =  233781 ns
+    msg_rate       =    4278 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =    66.5 % cpus
+    rem_cpus_used  =    54.5 % cpus
+local: 172.21.20.10
+remote: 172.21.20.15
+tcp_bw:
+    bw              =       4730048 bytes/sec
+    msg_rate        =         73907 /sec
+    msg_size        =            64 bytes
+    send_cost       =  170163419069 ns/GB
+    recv_cost       =  211414345055 ns/GB
+    send_cpus_used  =            83 % cpus
+    recv_cpus_used  =           100 % cpus
+tcp_lat:
+    latency        =  241546 ns
+    msg_rate       =    4140 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =    52.5 % cpus
+    rem_cpus_used  =      67 % cpus
+local: 172.21.20.10
+remote: 172.21.20.16
+tcp_bw:
+    bw              =       4588100 bytes/sec
+    msg_rate        =         72048 /sec
+    msg_size        =            64 bytes
+    send_cost       =  194497714793 ns/GB
+    recv_cost       =  216870814393 ns/GB
+    send_cpus_used  =          92.5 % cpus
+    recv_cpus_used  =           100 % cpus
+tcp_lat:
+    latency        =  241181 ns
+    msg_rate       =    4157 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =    43.8 % cpus
+    rem_cpus_used  =    58.5 % cpus
+local: 172.21.20.10
+remote: 172.21.20.17
+tcp_bw:
+    bw              =       4655168 bytes/sec
+    msg_rate        =         72737 /sec
+    msg_size        =            64 bytes
+    send_cost       =  184515229588 ns/GB
+    recv_cost       =  214815018491 ns/GB
+    send_cpus_used  =          88.5 % cpus
+    recv_cpus_used  =           100 % cpus
+tcp_lat:
+    latency        =  238749 ns
+    msg_rate       =    4178 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =    51.5 % cpus
+    rem_cpus_used  =    63.7 % cpus
+local: 172.21.20.10
+remote: 172.21.20.18
+tcp_bw:
+    bw              =       4851648 bytes/sec
+    msg_rate        =         75807 /sec
+    msg_size        =            64 bytes
+    send_cost       =  168219622294 ns/GB
+    recv_cost       =  206115530228 ns/GB
+    send_cpus_used  =            84 % cpus
+    recv_cpus_used  =           100 % cpus
+tcp_lat:
+    latency        =  238209 ns
+    msg_rate       =    4198 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =    46.5 % cpus
+    rem_cpus_used  =    54.5 % cpus
+local: 172.21.20.10
+remote: 172.21.20.33
+tcp_bw:
+    bw              =       4669952 bytes/sec
+    msg_rate        =         72968 /sec
+    msg_size        =            64 bytes
+    send_cost       =  177087272556 ns/GB
+    recv_cost       =  213064289476 ns/GB
+    send_cpus_used  =          85.5 % cpus
+    recv_cpus_used  =           100 % cpus
+tcp_lat:
+    latency        =  249938 ns
+    msg_rate       =    4011 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =    59.7 % cpus
+    rem_cpus_used  =    54.5 % cpus
+local: 172.21.20.10
+remote: 172.21.20.36
+tcp_bw:
+    bw              =       4700402 bytes/sec
+    msg_rate        =         73811 /sec
+    msg_size        =            64 bytes
+    send_cost       =  169167194621 ns/GB
+    recv_cost       =  211689314601 ns/GB
+    send_cpus_used  =          82.5 % cpus
+    recv_cpus_used  =           100 % cpus
+tcp_lat:
+    latency        =  280820 ns
+    msg_rate       =    3552 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =      49 % cpus
+    rem_cpus_used  =    55.7 % cpus
+local: 172.21.20.10
+remote: 172.21.20.37
+tcp_bw:
+    bw              =       4807520 bytes/sec
+    msg_rate        =         74744 /sec
+    msg_size        =            64 bytes
+    send_cost       =  165291010615 ns/GB
+    recv_cost       =  205927382421 ns/GB
+    send_cpus_used  =          80.6 % cpus
+    recv_cpus_used  =            99 % cpus
+tcp_lat:
+    latency        =  249876 ns
+    msg_rate       =    4012 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =    61.7 % cpus
+    rem_cpus_used  =    60.5 % cpus
+local: 172.21.20.10
+remote: 172.21.20.38
+tcp_bw:
+    bw              =       4661110 bytes/sec
+    msg_rate        =         73194 /sec
+    msg_size        =            64 bytes
+    send_cost       =  182662352631 ns/GB
+    recv_cost       =  213473782004 ns/GB
+    send_cpus_used  =            88 % cpus
+    recv_cpus_used  =           100 % cpus
+tcp_lat:
+    latency        =  259034 ns
+    msg_rate       =    3860 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =    66.5 % cpus
+    rem_cpus_used  =      48 % cpus
+local: 172.21.20.10
+remote: 172.21.20.39
+tcp_bw:
+    bw              =       4672192 bytes/sec
+    msg_rate        =         72640 /sec
+    msg_size        =            64 bytes
+    send_cost       =  178342868911 ns/GB
+    recv_cost       =  209751658124 ns/GB
+    send_cpus_used  =          86.1 % cpus
+    recv_cpus_used  =            98 % cpus
+tcp_lat:
+    latency        =  251889 ns
+    msg_rate       =    3970 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =      65 % cpus
+    rem_cpus_used  =    62.5 % cpus
+local: 172.21.20.10
+remote: 172.21.20.40
+tcp_bw:
+    bw              =       4613056 bytes/sec
+    msg_rate        =         72079 /sec
+    msg_size        =            64 bytes
+    send_cost       =  180909890399 ns/GB
+    recv_cost       =  212440520790 ns/GB
+    send_cpus_used  =            87 % cpus
+    recv_cpus_used  =            98 % cpus
+tcp_lat:
+    latency        =  249626 ns
+    msg_rate       =    4006 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =    52.5 % cpus
+    rem_cpus_used  =    67.5 % cpus
+local: 172.21.20.10
+remote: 172.21.20.41
+tcp_bw:
+    bw              =       4739040 bytes/sec
+    msg_rate        =         74048 /sec
+    msg_size        =            64 bytes
+    send_cost       =  176583661365 ns/GB
+    recv_cost       =  209958135987 ns/GB
+    send_cpus_used  =          86.5 % cpus
+    recv_cpus_used  =           100 % cpus
+tcp_lat:
+    latency        =  266631 ns
+    msg_rate       =    3750 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =    49.5 % cpus
+    rem_cpus_used  =    65.5 % cpus
+local: 172.21.20.10
+remote: 172.21.20.42
+tcp_bw:
+    bw              =       4791744 bytes/sec
+    msg_rate        =         74871 /sec
+    msg_size        =            64 bytes
+    send_cost       =  172543472389 ns/GB
+    recv_cost       =  208692284062 ns/GB
+    send_cpus_used  =          83.5 % cpus
+    recv_cpus_used  =           100 % cpus
+tcp_lat:
+    latency        =  265076 ns
+    msg_rate       =    3772 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =      63 % cpus
+    rem_cpus_used  =    55.5 % cpus
+local: 172.21.20.10
+remote: 172.21.20.43
+tcp_bw:
+    bw              =       4766272 bytes/sec
+    msg_rate        =         74473 /sec
+    msg_size        =            64 bytes
+    send_cost       =  172017607398 ns/GB
+    recv_cost       =  205611433647 ns/GB
+    send_cpus_used  =          84.5 % cpus
+    recv_cpus_used  =            98 % cpus
+tcp_lat:
+    latency        =  262398 ns
+    msg_rate       =    3811 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =      73 % cpus
+    rem_cpus_used  =      40 % cpus
+local: 172.21.20.10
+remote: 172.21.20.44
+tcp_bw:
+    bw              =       4790336 bytes/sec
+    msg_rate        =         74849 /sec
+    msg_size        =            64 bytes
+    send_cost       =  161077349419 ns/GB
+    recv_cost       =  208753623963 ns/GB
+    send_cpus_used  =            81 % cpus
+    recv_cpus_used  =           100 % cpus
+tcp_lat:
+    latency        =  260213 ns
+    msg_rate       =    3843 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =      50 % cpus
+    rem_cpus_used  =      35 % cpus
+local: 172.21.20.10
+remote: 172.21.20.45
+tcp_bw:
+    bw              =       4798304 bytes/sec
+    msg_rate        =         74974 /sec
+    msg_size        =            64 bytes
+    send_cost       =  164527871146 ns/GB
+    recv_cost       =  207364936604 ns/GB
+    send_cpus_used  =          81.5 % cpus
+    recv_cpus_used  =          99.5 % cpus
+tcp_lat:
+    latency        =  257301 ns
+    msg_rate       =    3886 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =    66.5 % cpus
+    rem_cpus_used  =      55 % cpus
+local: 172.21.20.10
+remote: 172.21.20.46
+tcp_bw:
+    bw              =       4752320 bytes/sec
+    msg_rate        =         74255 /sec
+    msg_size        =            64 bytes
+    send_cost       =  175394518209 ns/GB
+    recv_cost       =  208319307104 ns/GB
+    send_cpus_used  =            86 % cpus
+    recv_cpus_used  =            99 % cpus
+tcp_lat:
+    latency        =  248108 ns
+    msg_rate       =    4030 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =    61.5 % cpus
+    rem_cpus_used  =      54 % cpus
+local: 172.21.20.10
+remote: 172.21.20.47
+tcp_bw:
+    bw              =       3389472 bytes/sec
+    msg_rate        =         52960 /sec
+    msg_size        =            64 bytes
+    send_cost       =  284463397010 ns/GB
+    recv_cost       =  237500120123 ns/GB
+    send_cpus_used  =          96.5 % cpus
+    recv_cpus_used  =          80.5 % cpus
+tcp_lat:
+    latency        =  307692 ns
+    msg_rate       =    3250 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =    94.5 % cpus
+    rem_cpus_used  =    49.5 % cpus
+local: 172.21.20.10
+remote: 172.21.20.48
+tcp_bw:
+    bw              =       4808640 bytes/sec
+    msg_rate        =         75135 /sec
+    msg_size        =            64 bytes
+    send_cost       =  169444475015 ns/GB
+    recv_cost       =  206919213077 ns/GB
+    send_cpus_used  =            84 % cpus
+    recv_cpus_used  =           100 % cpus
+tcp_lat:
+    latency        =  248385 ns
+    msg_rate       =    4026 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =    53.5 % cpus
+    rem_cpus_used  =      52 % cpus
+local: 172.21.20.10
+remote: 172.21.20.52
+tcp_bw:
+    bw              =       4637440 bytes/sec
+    msg_rate        =         72460 /sec
+    msg_size        =            64 bytes
+    send_cost       =  178528226749 ns/GB
+    recv_cost       =  213479853009 ns/GB
+    send_cpus_used  =            85 % cpus
+    recv_cpus_used  =            99 % cpus
+tcp_lat:
+    latency        =  253293 ns
+    msg_rate       =    3948 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =      61 % cpus
+    rem_cpus_used  =    51.5 % cpus
+local: 172.21.20.10
+remote: 172.21.20.54
+tcp_bw:
+    bw              =       4793120 bytes/sec
+    msg_rate        =         74892 /sec
+    msg_size        =            64 bytes
+    send_cost       =  171219004014 ns/GB
+    recv_cost       =  208632373068 ns/GB
+    send_cpus_used  =          84.5 % cpus
+    recv_cpus_used  =           100 % cpus
+tcp_lat:
+    latency        =  277316 ns
+    msg_rate       =    3606 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =      50 % cpus
+    rem_cpus_used  =      54 % cpus
+local: 172.21.20.10
+remote: 172.21.20.55
+tcp_bw:
+    bw              =       4908896 bytes/sec
+    msg_rate        =         76702 /sec
+    msg_size        =            64 bytes
+    send_cost       =  163249958065 ns/GB
+    recv_cost       =  203711791816 ns/GB
+    send_cpus_used  =          82.5 % cpus
+    recv_cpus_used  =           100 % cpus
+tcp_lat:
+    latency        =  271370 ns
+    msg_rate       =    3685 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =    65.5 % cpus
+    rem_cpus_used  =      52 % cpus
+local: 172.21.20.10
+remote: 172.21.20.56
+tcp_bw:
+    bw              =       4903136 bytes/sec
+    msg_rate        =         76612 /sec
+    msg_size        =            64 bytes
+    send_cost       =  148095842890 ns/GB
+    recv_cost       =  202931349399 ns/GB
+    send_cpus_used  =            75 % cpus
+    recv_cpus_used  =           100 % cpus
+tcp_lat:
+    latency        =  241517 ns
+    msg_rate       =    4140 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =    44.5 % cpus
+    rem_cpus_used  =    44.5 % cpus
+local: 172.21.20.10
+remote: 172.21.20.57
+tcp_bw:
+    bw              =       4931456 bytes/sec
+    msg_rate        =         76671 /sec
+    msg_size        =            64 bytes
+    send_cost       =  140481664249 ns/GB
+    recv_cost       =  201765970287 ns/GB
+    send_cpus_used  =          71.1 % cpus
+    recv_cpus_used  =           100 % cpus
+tcp_lat:
+    latency        =  248880 ns
+    msg_rate       =    4018 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =    34.5 % cpus
+    rem_cpus_used  =      55 % cpus
+local: 172.21.20.10
+remote: 172.21.20.9
+tcp_bw:
+    bw              =       4846720 bytes/sec
+    msg_rate        =         75353 /sec
+    msg_size        =            64 bytes
+    send_cost       =  176327108348 ns/GB
+    recv_cost       =  206325102337 ns/GB
+    send_cpus_used  =          87.1 % cpus
+    recv_cpus_used  =           100 % cpus
+tcp_lat:
+    latency        =  238863 ns
+    msg_rate       =    4186 /sec
+    msg_size       =      64 bytes
+    loc_cpus_used  =      48 % cpus
+    rem_cpus_used  =      60 % cpus
