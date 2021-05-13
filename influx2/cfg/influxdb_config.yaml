@@ -1,0 +1,13 @@
+# confguration file defining the data model for influx db logging
+
+#db_drop: false
+#db_host: 172.21.20.53
+#db_name: riapsdb
+#db_password: riapsdevpw
+#db_port: 8086
+#db_user: riapsdev
+
+bucket: default
+org: RIAPS
+token: M2ud7ebC_MCB1iQAsI7sBxurSl3SEWkg_YZXUQ0W3rYAMQ7RdNPB9i0UwKtuEd5xnAY2oqWx2KNLgL1Ch6CB3Q==
+url: http://localhost:8086
