@@ -1,0 +1,34 @@
+@startuml
+
+participant actor
+participant part
+participant comp.while
+participant comp
+
+actor -> part: activate(actor.py:427)
+part -> part: activate(part.py:214)
+activate part
+
+comp -> comp: run()
+activate comp
+comp -> comp: setupControl()
+comp -> comp: setupSockets()
+comp -> comp: setupPoller()
+comp -> comp: setupScheduler()
+comp -> comp.while**: while True
+
+activate comp.while
+
+
+part -> comp.while: sendControl(""activate", -1)
+deactivate part
+
+comp.while -> comp.while: if self.control in dict(self.poller.poll())
+activate comp.while
+comp.while -> comp.while: if msg == "activate": handleActivate()
+activate comp.while
+
+deactivate comp.while
+deactivate comp.while
+
+@enduml

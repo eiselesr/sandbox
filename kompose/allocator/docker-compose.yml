@@ -1,0 +1,10 @@
+#docker-compose.yml
+version: '3'
+services:
+      allocator_service:
+        container_name: docker_allocator_service
+        build:
+#          context: "build"
+          context: "."
+          dockerfile: Dockerfiles/Allocator.Dockerfile
+        image: eiselesr/allocator

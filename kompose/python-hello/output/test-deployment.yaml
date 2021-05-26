@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -o output/
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: test
+  name: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: test
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -o output/
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: test
+    spec:
+      containers:
+        - image: eiselesr/my-hello
+          name: test
+          resources: {}
+      restartPolicy: Always
+status: {}

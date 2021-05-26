@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose --file docker-compose.yml convert --verbose --build local -o deployments/
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: allocator-service
+  name: allocator-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: allocator-service
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose --file docker-compose.yml convert --verbose --build local -o deployments/
+        kompose.version: 1.22.0 (955b78124)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: allocator-service
+    spec:
+      containers:
+        - image: eiselesr/allocator
+          name: docker-allocator-service
+          resources: {}
+      restartPolicy: Always
+status: {}

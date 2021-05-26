@@ -1,0 +1,229 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+box
+participant ctrl
+queue redis
+control ctrlgui
+participant ctrlsrv
+participant RIAPSControl
+end box
+
+box
+participant deplo.main
+participant DeploService
+participant ResourceManager
+participant SpcMonitor
+participant NetMonitor
+participant FaultManager
+participant DeploymentManager
+participant ProcessManager
+participant FMMonitor
+participant NicMonitor
+end box
+
+actor user
+
+par
+
+ctrl -> ctrl: riaps_ctrl(main:36)
+
+
+ctrl -> ctrl: Controller(const.ctrlPort)(main:53)
+ctrl -> ctrl: Controller.start(main:54)
+activate ctrl
+group Controller.start(ctrl:172)
+    ctrl -> redis**: startDbase/redis-server(ctrl:176>ctrl:150)
+    ctrl -> ctrlgui**: startUI(ctrl:177>ctrl:163)
+    ctrl -> ctrl: startService(ctrl:178)
+    group startService(ctrl:141)
+        activate ctrl
+        ctrl -> ctrl: ServiceThread(ctrl:145)
+        ctrl -> ctrl: setController(ctrl:146)
+        ctrl -> ctrlsrv**: start(ctrl:147)
+            group start(ctrlsrv.run)
+                ctrlsrv -> ctrlsrv: ThreadedServer(ControllerService:RIAPSCONTROL)(ctrlsrv:233)
+                ctrlsrv -> RIAPSControl **:start (ctrlsrv:241/rpyc)
+                note left : ctrlsrv:161 should be from const.ctrlServiceName
+            end
+        deactivate
+    end
+end
+deactivate
+
+deplo.main -> DeploService**: DeploService(main: 57)
+
+DeploService -> DeploService: init(deplo:33)
+activate DeploService
+
+DeploService -> DeploService: setupIfaces(deplo: 63)
+
+
+DeploService -> ResourceManager**: (deplo:69)
+ResourceManager -> ResourceManager: init(resm:489)
+activate ResourceManager
+
+activate SpcMonitor
+ResourceManager -> SpcMonitor**:(resm:515)
+SpcMonitor -> SpcMonitor: init(spcmon:35)
+SpcMonitor -> ResourceManager: spcMonitor
+deactivate SpcMonitor
+
+ResourceManager -> SpcMonitor: start(resm:516)
+activate SpcMonitor
+    SpcMonitor -> SpcMonitor: run(spcmon:102)
+    SpcMonitor -> ResourceManager
+deactivate SpcMonitor
+
+
+ResourceManager -> NetMonitor**:(resm: 529)
+activate NetMonitor
+ NetMonitor -> NetMonitor: init(netmon: 194)
+ NetMonitor -> ResourceManager: netMonitor
+deactivate NetMonitor
+
+ResourceManager -> NetMonitor: start(resm: 530)
+activate NetMonitor
+    NetMonitor -> NetMonitor: run(netmon: 310)
+    NetMonitor -> ResourceManager
+deactivate NetMonitor
+
+ResourceManager -> DeploService: resm
+deactivate ResourceManager
+
+
+DeploService -> FaultManager**: (deplo:70)
+FaultManager -> FaultManager: init(fm:27)
+activate FaultManager
+
+FaultManager -> NicMonitor**:(fm:402)
+NicMonitor -> NicMonitor:init(fm:263)
+activate NicMonitor
+NicMonitor -> FaultManager:nicMonitor
+deactivate NicMonitor
+FaultManager -> NicMonitor:start(fm:403)
+activate NicMonitor
+NicMonitor -> NicMonitor:run(fm:280)
+
+
+FaultManager -> FMMonitor**:(fm:408)
+FMMonitor -> FMMonitor:init(fm:27)
+activate FMMonitor
+FMMonitor -> FaultManager:fmMonitor
+deactivate FMMonitor
+FaultManager -> FMMonitor:start(fm:409)
+activate FMMonitor
+FMMonitor -> FMMonitor:run(fm:83)
+
+
+
+FaultManager -> DeploService: fm
+deactivate FaultManager
+
+
+
+DeploService -> DeploymentManager**: (deplo:72)
+DeploymentManager -> DeploymentManager: init(depm:72)
+activate DeploymentManager
+    DeploymentManager -> ProcessManager**: (depm: 97)
+    ProcessManager -> ProcessManager: init (procm:31)
+    activate ProcessManager
+    ProcessManager -> DeploymentManager: procm
+    deactivate ProcessManager
+DeploymentManager -> DeploService:  depm
+deactivate DeploymentManager
+deactivate DeploService
+
+
+deplo.main -> DeploService:setup(main:58)
+activate DeploService
+    DeploService -> DeploService:setup(deplo:155)
+    activate DeploService
+
+        DeploService -> DeploymentManager:start(deplo:165)
+        activate DeploymentManager
+            DeploymentManager -> DeploymentManager:run(depm:970)
+            activate DeploymentManager
+                DeploymentManager -> FaultManager:setupFMMon(depm:988)
+                    FaultManager -> DeploymentManager
+                DeploymentManager -> FaultManager:setupNICMon(depm:991)
+                    FaultManager -> DeploymentManager
+            deactivate DeploymentManager
+            DeploymentManager -> DeploService
+        deactivate DeploymentManager
+    deactivate DeploService
+    DeploService -> deplo.main
+deactivate DeploService
+
+
+
+'deplo -> deplo: DeploService(main: 57)
+'activate deplo
+'group DeploService
+'
+'    deplo -> deplo: setupIfaces(deplo: 63)
+'
+'    group ResourceManager
+'        deplo -> SpcMonitor**: start(resm:515)
+'        deplo -> NetMonitor**: start(resm:529)
+'    end
+'
+'    group FaultManager
+'        deplo -> NicMonitor**: start(fm: 403)
+'        deplo -> FMMonitor**: start(fm: 409)
+'    end
+'
+'end
+'deactivate
+
+
+deplo -> deplo: setup(main:58)>\nsetup(deplo:155)
+activate deplo
+
+
+    deplo -> deplo: login (deplo:169)
+    activate deplo
+    group login (deplo:92)
+'            const.ctrlServiceName = 'RIAPSControl'
+        deplo -> redis: rpyc.discover(RIAPSControl)(deplo:102)
+
+
+        deplo -> RIAPSControl: rpyc.connect(deplo:129)
+        activate RIAPSControl
+        RIAPSControl -> RIAPSControl: on_connect
+        deactivate
+
+        deplo -> RIAPSControl: root.login(deplo:144)
+        activate RIAPSControl
+            RIAPSControl -> RIAPSControl: exposed_login(ctrlsrv:183)
+            note left : 'exposed' is the rpyc keyword
+            RIAPSControl -> ctrl: addClient(ctrlsrv:201)
+        deactivate
+            group addClient(ctrl:229)
+                ctrl -> ctrl: self.clientMap[clientName] = client
+                ctrl -> ctrl: self.queryClient(clientName,client)
+            end
+
+
+        deplo -> DeploymentManager: callCommand('setDisco')(deplo:149)
+        DeploymentManager -> DeploymentManager: setupDisco(depm:857)
+        activate DeploymentManager
+            DeploymentManager -> DeploymentManager: startDisco(depm:311)
+            activate DeploymentManager
+                DeploymentManager -> Disco**:
+            deactivate
+        deactivate
+    end
+    deactivate deplo
+
+deactivate
+
+deplo -> deplo: run(main:59)
+
+user -> ctrlgui: launch
+
+
+
+@enduml
