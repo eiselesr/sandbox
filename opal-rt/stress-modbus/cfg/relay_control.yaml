@@ -1,0 +1,2 @@
+GridConnect:
+  control_params: ["STATUS", "IS_TRIPPED_BIT", "SYNCHK_FREQ_SLIP", "SYNCHK_VOLT_DIFF", "SYNCHK_ANG_DIFF"]

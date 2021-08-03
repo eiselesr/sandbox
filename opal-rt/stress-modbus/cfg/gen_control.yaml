@@ -1,0 +1,5 @@
+GridConnect:
+  control_params: ["FREQ", "VA_RMS", "P", "Q"]
+  # frequency, voltageMag, activePower, reactivePower
+  USE: "POWER"
+  # Secondary Control Options: "POWER", "OMEGA", "NONE"

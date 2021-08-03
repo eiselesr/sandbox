@@ -1,0 +1,697 @@
+---
+# DG1, READ, CMD
+# DG1, WRITE, CMD=Value
+Gen2:
+   name: "Gen2"
+   Description: Diesel Generator
+   Address: 10.1.4.201
+   Voltage_level: 13800
+   uuid: "201"
+   Port: 502
+   Slave: 201
+   Interval: 10000
+   Neighbors: []
+   VoltageRegulateDG: 1
+   poll:
+#     IA_PEAK_READ:
+#     IB_PEAK_READ:
+#     IC_PEAK_READ:
+   debugMode: False
+
+   IA_PEAK_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 0
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+         - 1
+         - A
+
+   IA_ANGLE_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 1
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+         - 0.1
+         - Deg
+
+   IB_PEAK_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 2
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+         - 1
+         - A
+
+   IB_ANGLE_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 3
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+         - 0.1
+         - Deg
+
+   IC_PEAK_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 4
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+         - 1
+         - A
+
+   IC_ANGLE_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 5
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+         - 0.1
+         - Deg
+
+   IA_RMS_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 6
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+         - 1
+         - A
+      #Info: Phase A RMS Current
+
+   IB_RMS_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 7
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+         - 1
+         - A
+      #Info: Phase B RMS Current
+
+   IC_RMS_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 8
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+         - 1
+         - A
+      #Info: Phase C RMS Current
+
+   VA_RMS_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 9
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+          - 1
+          - V
+      #Info: Phase A RMS voltage
+
+   VB_RMS_VOLTAGE_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 10
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+          - 1
+          - V
+      #Info: Phase B RMS voltage
+
+   VC_RMS_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 11
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+          - 1
+          - V
+      #Info: Phase C RMS voltage
+
+   VA_PEAK_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 12
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+          - 1
+          - V
+      #Info: Phase A Peak voltage
+
+   VA_ANGLE_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 13
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+          - 0.1
+          - Deg
+      #Info: Phase A Voltage Angle
+
+   VB_PEAK_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 14
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+          - 1
+          - V
+      #Info: Phase B Peak voltage
+
+   VB_ANGLE_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 15
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+          - 0.1
+          - Deg
+      #Info: Phase B Voltage Angle
+
+   VC_PEAK_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 16
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+          - 1
+          - V
+      #Info: Phase C Peak voltage
+
+   VC_ANGLE_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 17
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+          - 0.1
+          - Deg
+      #Info: Phase C Voltage Angle
+
+   P_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 18
+      length: 1
+      data_format: ">h"
+      expected_length: -1
+      Units:
+          - 1
+          - kW
+      #Info: Real power
+
+   Q_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 19
+      length: 1
+      data_format: ">h"
+      expected_length: -1
+      Units:
+          - 1
+          - kVAR
+      #Info: Reactive power
+
+   S_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 20
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+          - 1
+          - kVA
+      #Info: Apparent power
+
+   PF_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 21
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+          - 0.001
+          - NONE
+      #Info: Power factor
+
+   FREQ_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 22
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+          - 0.01
+          - Hz
+      #Info: Frequency
+
+   SYNC_FREQ_SLIP_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 23
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+          - 0.01
+          - Hz
+      #Info: Synchronization frequency slip
+
+   SYNC_VOLT_DIFF_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 24
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+          - 1
+          - VLN
+      #Info: Synchronization voltage difference Line-to-Neutral
+
+   SYNC_ANGLE_DIFF_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 25
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+          - 0.1
+          - Deg
+      #Info: Synchronization phase-angle difference
+
+   STATUS_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 26
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+          - 1
+          - NONE
+      #Info: Generator status flags
+
+   FAULT_STATUS_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 27
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+          - 1
+          - NONE
+      #Info: Generator fault status flags
+
+###### READ/WRITE Commands - Holding registers #######
+   CONTROL_READ:
+      info: Description of parameter or command
+      function: READ_HOLDING_REGISTERS
+      start: 2000
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+         - 1
+         - NONE
+      #Info: Generator control flags
+
+   CONTROL_WRITE:
+      info: Description of parameter or command
+      function: WRITE_MULTIPLE_REGISTERS
+      start: 2000
+      length: 1
+      output_value: 0
+      data_format: ""
+      expected_length: -1
+      write_starting_address_FC23: 0
+      Units:
+         - 1
+         - NONE
+
+   REAL_POWER_READ:
+      info: Description of parameter or command
+      function: READ_HOLDING_REGISTERS
+      start: 2001
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+         - 1
+         - kW
+      #Info: Generator real power setpoint
+
+   REAL_POWER_WRITE:
+      info: Description of parameter or command
+      function: WRITE_MULTIPLE_REGISTERS
+      start: 2001
+      length: 1
+      output_value: 0
+      data_format: ""
+      expected_length: -1
+      write_starting_address_FC23: 0
+      Units:
+         - 1
+         - kW
+
+   REACTIVE_POWER_READ:
+      info: Description of parameter or command
+      function: READ_HOLDING_REGISTERS
+      start: 2002
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+         - 1
+         - kVAR
+      #Info: Generator reactive power setpoint
+
+   REACTIVE_POWER_WRITE:
+      info: Description of parameter or command
+      function: WRITE_MULTIPLE_REGISTERS
+      start: 2002
+      length: 1
+      output_value: 0
+      data_format: ""
+      expected_length: -1
+      write_starting_address_FC23: 0
+      Units:
+         - 1
+         - kVAR
+
+   VOLTAGE_READ:
+      info: Description of parameter or command
+      function: READ_HOLDING_REGISTERS
+      start: 2003
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+         - 1
+         - V
+      #Info: Generator voltage setpoint
+
+   VOLTAGE_WRITE:
+      info: Description of parameter or command
+      function: WRITE_MULTIPLE_REGISTERS
+      start: 2003
+      length: 1
+      output_value: 0
+      data_format: ""
+      expected_length: -1
+      write_starting_address_FC23: 0
+      Units:
+         - 1
+         - V
+
+   FREQUENCY_READ:
+      info: Description of parameter or command
+      function: READ_HOLDING_REGISTERS
+      start: 2004
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+         - 0.01
+         - Hz
+      #Info: Generator frequency setpoint
+
+   FREQUENCY_WRITE:
+      info: Description of parameter or command
+      function: WRITE_MULTIPLE_REGISTERS
+      start: 2004
+      length: 1
+      output_value: 0
+      data_format: ""
+      expected_length: -1
+      write_starting_address_FC23: 0
+      Units:
+         - 0.01
+         - Hz
+
+   VOLTVAR_DROOP_READ:
+      info: Description of parameter or command
+      function: READ_HOLDING_REGISTERS
+      start: 2005
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+         - 0.01
+         - Percent
+      #Info: Generator Volt per VAR droop setpoint
+
+   VOLTVAR_DROOP_WRITE:
+      info: Description of parameter or command
+      function: WRITE_MULTIPLE_REGISTERS
+      start: 2005
+      length: 1
+      output_value: 3
+      data_format: ""
+      expected_length: -1
+      write_starting_address_FC23: 0
+      Units:
+         - 0.01
+         - Percent
+
+   FREQKW_DROOP_READ:
+      info: Description of parameter or command
+      function: READ_HOLDING_REGISTERS
+      start: 2006
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+         - 0.01
+         - Percent
+      #Info: Generator Hz per kW droop setpoint
+
+   FREQKW_DROOP_WRITE:
+      info: Description of parameter or command
+      function: WRITE_MULTIPLE_REGISTERS
+      start: 2006
+      length: 1
+      output_value: 3
+      data_format: ""
+      expected_length: -1
+      write_starting_address_FC23: 0
+      Units:
+         - 0.01
+         - Percent
+
+   FAULT_RESET_TIME_READ:
+      info: Description of parameter or command
+      function: READ_HOLDING_REGISTERS
+      start: 2007
+      length: 1
+      data_format: ""
+      expected_length: -1
+      Units:
+         - 1
+         - s
+      #Info: Generator fault auto-reset time
+
+   FAULT_RESET_TIME_WRITE:
+      info: Description of parameter or command
+      function: WRITE_MULTIPLE_REGISTERS
+      start: 2007
+      length: 1
+      output_value: 3
+      data_format: ""
+      expected_length: -1
+      write_starting_address_FC23: 0
+      Units:
+         - 1
+         - s
+
+#####################BIT READ ONLY COMMANDS##########################################
+   IS_ENABLED_BIT_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 26
+      length: 1
+      data_format: ""
+      expected_length: -1
+      bit_position: 0
+      #Info: Generator enabled status bit
+
+   IS_TRIPPED_BIT_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 26
+      length: 1
+      data_format: ""
+      expected_length: -1
+      bit_position: 1
+      #Info: Generator output breaker is tripped
+
+   IS_GRID_CONNECTED_BIT_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 26
+      length: 1
+      data_format: ""
+      expected_length: -1
+      bit_position: 2
+      #Info: Generator is connected to the grid
+
+   HAVE_INTERNAL_FAULT_BIT_READ:
+      info: Description of parameter or command
+      function: READ_INPUT_REGISTERS
+      start: 27
+      length: 1
+      data_format: ""
+      expected_length: -1
+      bit_position: 4
+      #Info: Generator output breaker is tripped
+
+
+#####################BIT READ/WRITE COMMANDS##########################################
+
+   ENABLE_GENERATOR_BIT_READ:
+      info: Description of parameter or command
+      function: READ_HOLDING_REGISTERS
+      start: 2000
+      length: 1
+      data_format: ""
+      expected_length: -1
+      bit_position: 0
+      #Info: Generator output enable 1-Connected, 0-Disconnected
+
+   ENABLE_GENERATOR_BIT_WRITE:
+      info: Description of parameter or command
+      function: WRITE_SINGLE_REGISTER
+      start: 2000
+      length: 1
+      output_value: 0
+      data_format: ""
+      expected_length: -1
+      write_starting_address_FC23: 0
+      bit_position: 0
+
+   VF-PQ_CONTROL_MODE_BIT_READ:
+      info: Description of parameter or command
+      function: READ_HOLDING_REGISTERS
+      start: 2000
+      length: 1
+      data_format: ""
+      expected_length: -1
+      bit_position: 1
+      #Info: Generator VF or PQ control mode 1-VF, 0-PQ
+
+   VF-PQ_CONTROL_MODE_BIT_WRITE:
+      info: Description of parameter or command
+      function: WRITE_SINGLE_REGISTER
+      start: 2000
+      length: 1
+      output_value: 0
+      data_format: ""
+      expected_length: -1
+      write_starting_address_FC23: 0
+      bit_position: 1
+
+   RESET_FAULTS_BIT_READ:
+      info: Description of parameter or command
+      function: READ_HOLDING_REGISTERS
+      start: 2000
+      length: 1
+      data_format: ""
+      expected_length: -1
+      bit_position: 2
+      #Info: Reset faults on positive edge of this bit 0->1
+
+   RESET_FAULTS_BIT_WRITE:
+      info: Description of parameter or command
+      function: WRITE_SINGLE_REGISTER
+      start: 2000
+      length: 1
+      output_value: 0
+      data_format: ""
+      expected_length: -1
+      write_starting_address_FC23: 0
+      bit_position: 2
+
+   GENERATOR_RUN_BIT_READ:
+      info: Description of parameter or command
+      function: READ_HOLDING_REGISTERS
+      start: 2000
+      length: 1
+      data_format: ""
+      expected_length: -1
+      bit_position: 3
+      #Info: Start or stop the generator 1-Start, 0-Stop
+
+   GENERATOR_RUN_BIT_WRITE:
+      info: Description of parameter or command
+      function: WRITE_SINGLE_REGISTER
+      start: 2000
+      length: 1
+      output_value: 0
+      data_format: ""
+      expected_length: -1
+      write_starting_address_FC23: 0
+      bit_position: 3
+
+###############READ ALL INPUT REGISTERS##############
+   ALL_INPUT_REGS_READ:
+      info: Read all input registers
+      function: READ_INPUT_REGISTERS
+      start: 0
+      length: 28
+      #Info: Read all input registers
+######################################################
+
+###############READ ALL HOLDING REGISTERS##############
+   ALL_HOLDING_REGS_READ:
+      info: Read all holding registers
+      function: READ_HOLDING_REGISTERS
+      start: 2000
+      length: 8
+      #Info: Read all holding registers
+#######################################################
+

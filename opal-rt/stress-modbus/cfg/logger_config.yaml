@@ -1,0 +1,27 @@
+# Capnp Python name, to be imported with importlib
+# Usually follows: test.capnp -> "test_capnp"
+CapnpLibraryName: "device_capnp"
+
+# Storage Schemes per message
+PwrConsensus:
+  time: "timestamp" # Time should be either numeric or an iso8601 compat string
+  fields:
+    - "reactivePower"
+    - "activePower"
+  tags:
+    - "sender"
+  average: 5 # average of every n samples reported once
+
+RelayStatus:
+  time: "timestamp" # Time should be either numeric or an iso8601 compat string
+  fields:
+    - "voltDiff"
+    - "freqSlip"
+    - "angDiff"
+  tags:
+    - "sender"
+  subsample: 5 # Every nth sample
+
+# Port Topics
+logPwrConsensus: "PwrConsensus"
+logRelayMsg: "RelayStatus"
