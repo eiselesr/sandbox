@@ -1,16 +1,14 @@
 
-1000 sequential calls to the parameters specifed in
+* 1000 sequential calls to the parameters specifed in
 `cfg/gen_control.yaml` and/or `cfg/relay_control.yaml`
 Each device ran in a separate process on my vm. 
-logs_1dvc
-* gen1 only
-logs_2dvc
-* gen_1 and gen_2
-logs_3dvc
-* gen_1, gen_2, and relay
 
-500 calls to each gen_1 and gen_2 from a single process
-logs_2dvc_alternate
+  * logs_1dvc - gen1 only
+  * logs_2dvc - gen_1 and gen_2
+  * logs_3dvc - gen_1, gen_2, and relay
+
+* 500 calls to each gen_1 and gen_2 from a single process
+  * logs_2dvc_alternate
 
 When running the tests I also ran bash time. 
 ### Gen1
