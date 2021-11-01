@@ -7,7 +7,9 @@
 #db_port: 8086
 #db_user: riapsdev
 
-bucket: default
-org: RIAPS
-token: M2ud7ebC_MCB1iQAsI7sBxurSl3SEWkg_YZXUQ0W3rYAMQ7RdNPB9i0UwKtuEd5xnAY2oqWx2KNLgL1Ch6CB3Q==
-url: http://localhost:8086
+# INFLUX CONFIG
+influx_logging: False
+bucket: mv2
+org: scott.r.eisele@vanderbilt.edu
+token: xPUdOZETtCeEX3Tn2Lx0UoXmIFUaugMJ-1I6-egVBBPV8ScovBCN4B8FjhgRY7-_4HBxg7J1YW3aGMI48YqoSA==
+url: https://us-central1-1.gcp.cloud2.influxdata.com/
