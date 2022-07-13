@@ -1,7 +1,4 @@
 import shim
-
-import pulsar
-import time
 import threading
 
 
