@@ -1,5 +1,4 @@
 import shim
-import threading
 
 
 class App:
