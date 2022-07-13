@@ -1,0 +1,6 @@
+[submodule "fsm/transitions"]
+	path = fsm/transitions
+	url = https://github.com/pytransitions/transitions.git
+[submodule "fsm/transitions-submodule"]
+	path = fsm/transitions-submodule
+	url = https://github.com/pytransitions/transitions.git
