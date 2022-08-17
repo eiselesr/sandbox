@@ -13,17 +13,17 @@ These are good examples because they use the modern RainerScript syntax, unlike 
 
 # Example
 
-After setting up the `rsyslog.conf` as described below, the server was started in this example using the command `sudo rsyslogd -f rsyslog.conf -n`, this uses the conf file specified after the `-f` flag. For this to work the systemd rsyslog service needs to be stopped (or start mutiple instances of rsyslog but this was not experimented with). On the client nodes the default conf files were modified and the systemd rsyslog service is restarted. 
+After setting up the `rsyslog.conf` as described below, the server was started in this example using the command `sudo rsyslogd -f rsyslog_server.conf -n`, this uses the conf file specified after the `-f` flag. For this to work the systemd rsyslog service needs to be stopped (or start mutiple instances of rsyslog but this was not experimented with). The alternative is to use the rsyslog systemd service and modify the `/etc/rsyslog.conf` file. On the client nodes the default conf files were modified and the systemd rsyslog service is restarted. 
 
 ## Server setup
 1. Add the [tcp input module](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html) to the beginning of the `rsyslog.conf` file
 ```ini
 module(load="imtcp")
 ```
-1. Define a template to create log files with dynamic names based on the hostname of the sender as well as the name of the program that created the log message. The `name` is how the template will be referenced and used by the filter. 
+1. Define a template to create log files with dynamic names based on the hostname of the sender as well as the name of the program that created the log message. The `name` is how the template will be referenced and used by the filter. You'll need to update the `base log path`. 
 ```ini
 template (name="DynaFile" type="list"){
-    constant(value="/home/riaps/projects/eiselesr/sandbox/learn-rsyslog/logs/")
+    constant(value="<base log path>/logs/")
     property(name="hostname")
     constant(value="/")
     property(name="programname")
@@ -55,6 +55,17 @@ On the client the only change was to add an action to the default config in `etc
 	   action.resumeRetryCount="100"
 	   queue.type="linkedList" queue.size="10000")
 ```
+
+## Running the example
+1. Start the server with
+```bash
+sudo rsyslogd -f rsyslog_server.conf -n
+```
+1. Restart the client with
+```bash
+sudo systemctl restart rsyslog.service
+```
+If you want to generate logs from a python script run the `syslogger.py` on the client and messages will show up on the server in `logs/<hostname of client>/syslogger.log` . 
 
 
 # Useful Commands
@@ -88,4 +99,4 @@ kill -TERM $(cat /var/run/rsyslogd.pid)
 sudo apt install gnutls-bin
 sudo apt-get install rsyslog-gnutls
 ```
-[Here](https://www.digitalocean.com/community/tutorials/how-to-centralize-logs-with-journald-on-ubuntu-20-04) is another link describing how to set up TLS using "Let's Encrypt". It appears a `hostname` is required, which my nodes do not seems to have available currently. Maybe because I'm using a MikroTik routerboard router and didn't configure it properly for that. 
+[Here](https://www.digitalocean.com/community/tutorials/how-to-centralize-logs-with-journald-on-ubuntu-20-04) is another link describing how to set up TLS using "Let's Encrypt". It appears a `dns hostname` is required, which my nodes do not seems to have available currently. Maybe because I'm using a MikroTik routerboard router and didn't configure it properly for that. 

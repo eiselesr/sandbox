@@ -1,0 +1,42 @@
+---
+version: 1
+
+formatters:
+  defaultFormatter:
+    format: "%(levelname)s:%(name)s:%(message)s"
+  debugFormatter:
+    format: "%(filename)s:%(lineno)d:%(message)s"
+  SysLogFormatter:
+    format: "%(module)s:[%(filename)s line:%(lineno)d]: msg: %(message)s"
+
+    
+
+handlers:
+  consoleHandler:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: defaultFormatter
+    stream: ext://sys.stdout
+
+  syslogHandler_tcp:
+    class: logging.handlers.SysLogHandler
+    level: DEBUG
+    formatter: SysLogFormatter
+    address: ["localhost", 514]
+    facility: "syslog"
+    socktype: ext://socket.SOCK_STREAM
+
+  syslogHandler:
+    class: logging.handlers.SysLogHandler
+    level: DEBUG
+    formatter: SysLogFormatter
+    address: '/dev/log'
+    facility: "syslog"
+
+loggers:
+  "__main__":
+    level: INFO
+    handlers:
+      - consoleHandler
+      - syslogHandler
+
