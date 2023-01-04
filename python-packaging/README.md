@@ -1,0 +1,1 @@
+Just found this [link](https://discuss.python.org/t/help-packaging-optional-application-features-using-extras/14074/6) that has pretty good discussion of ways to package optional features. 
