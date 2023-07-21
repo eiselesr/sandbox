@@ -13,7 +13,6 @@ sys.path.append('/home/riaps/projects/eiselesr/sandbox/python-fabric/interface.t
 import test_suite.test_api as test_api
 from test_suite.test_api import FileSystemEventHandlerWatchdog
 from test_suite.test_spec import TestSpec
-from test_suite.testInterface import Injector
 
 
 class AppTestSpec(TestSpec):
@@ -22,11 +21,6 @@ class AppTestSpec(TestSpec):
 
     def callback(self, event_source):
         super().callback(event_source)
-
-
-def faulty_on_tick(self):
-    now = self.tick.recv_pyobj()
-    self.logger.info(f"TestInterface | faulty on_tick | now: {now}")
 
 
 def test_sanity():
@@ -60,22 +54,12 @@ def test_app():
     )
 
     # Create the app spec
-    app_spec = AppTestSpec()
+    # app_spec = AppTestSpec()
 
     # Watch the log file for changes via the event queue and check termination conditions
     # max_seconds_without_callback = 10
-    # result = app_test_suite.watch_riaps_app(event_q, app_spec, max_seconds_without_callback=max_seconds_without_callback)
+    # result = test_api.watch_riaps_app(event_q, app_spec, max_seconds_without_callback=max_seconds_without_callback)
 
-    input("Press enter when ready to inject fault: ")
-    # Inject fault
-    injector = Injector(address="tcp://172.21.20.40:5555")
-
-    msg = {
-        "function": "on_tick",
-        "patch": "faulty_on_tick"
-    }
-    injector.send_request(msg)
-    #
     result = input("Press enter to terminate the app: ")
 
     # Stop the app
