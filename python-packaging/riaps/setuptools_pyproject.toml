@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "riaps"
+version = "0.0.1-dev"
+dependencies = [
+#    'riaps-interfaces-canbus @ git://https://github.com/eiselesr/sandbox.git#egg=python-packaging/namespace_packages/riaps-interfaces-canbus/'
+    'riaps-interfaces-canbus @ git+ssh://git@github.com:eiselesr/riaps-interfaces-canbus.git#master'
+]
+
+[project.optional-dependencies]
+#dev = ['ExtraExample @ git+ssh://git@github.com/example_org/ExtraExample.git']

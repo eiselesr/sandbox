@@ -1,0 +1,10 @@
+# INFLUX CONFIG
+influx_logging: False
+bucket: "NOAA water sample data"
+org: RIAPS
+token: 2WfdT4oOopU4g1Xt2e4nAz_pgSDoV2ONP4wlZLFKRlsRSMDSDeWfqGQVQJefvFh_BDpg9dmIeQp7onZyjFdbtA== # admin token. Can't get other one to work. 
+
+
+
+url: http://localhost:8086/
+debug: False

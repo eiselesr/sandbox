@@ -1,0 +1,18 @@
+app Demo
+{
+    // The fault injection app is a simple app that injects faults into the system
+
+    library app;
+
+    device DemoDevice_default()
+    {
+    	timer tick 1000;
+    }
+		
+	real-time actor DemoDeviceActor()
+	{
+		{ 
+			demo_device  : DemoDevice_default();
+		}
+	}
+}
