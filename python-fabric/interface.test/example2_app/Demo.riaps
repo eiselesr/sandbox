@@ -1,0 +1,16 @@
+app Demo
+{
+    library app;
+
+    component DemoComponent_default()
+    {
+        timer tick 1000;
+    }
+		
+	real-time actor DemoActor()
+	{
+		{ 
+			demo_comp  : DemoComponent_default();
+		}
+	}
+}

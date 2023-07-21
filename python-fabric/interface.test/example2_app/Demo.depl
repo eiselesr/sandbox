@@ -1,0 +1,4 @@
+app Demo
+{
+    on(172.21.20.40) DemoActor();
+}

@@ -1,0 +1,30 @@
+app Demo
+{
+    // The fault injection app is a simple app that injects faults into the system
+
+    message pytest_cmd;
+
+    library app;
+    library test_suite;
+
+    device DemoDevice_test()
+    {
+    	inside pytest_cmd_port;
+    	pub pub_pytest_cmd : pytest_cmd;
+    }
+
+    component DemoComponent_test()
+    {
+        timer tick 1000;
+        sub sub_pytest_cmd : pytest_cmd;
+    }
+		
+	real-time actor DemoActor()
+	{
+	    internal pytest_cmd;
+		{
+		    demo_comp  : DemoComponent_test();
+			demo_device  : DemoDevice_test();
+		}
+	}
+}
