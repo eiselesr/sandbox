@@ -13,7 +13,7 @@ class DemoDevice(Component):
     # riaps:keep_tick:begin
     def on_tick(self):
         now = self.tick.recv_pyobj()
-        self.logger.info(f"TestInterface | on_tick | now: {now}")
+        self.logger.info(f"DemoDevice | on_tick | now: {now}")
     # riaps:keep_tick:end
 
     # riaps:keep_impl:begin
