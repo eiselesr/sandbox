@@ -19,7 +19,7 @@ class DemoDevice_test(DemoDevice):
         """
         This method is called when a message is received on the pytest_cmd_port from the InjectionServer thread.
         """
-        msg = self.gpio_cmd_port.recv_pyobj()
+        msg = self.pytest_cmd_port.recv_pyobj()
         self.logger.info(f"DemoDevice | on_pytest_cmd_port | msg: {msg}")
         self.pub_pytest_cmd.send_pyobj(msg)
 

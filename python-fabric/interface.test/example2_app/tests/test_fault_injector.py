@@ -66,22 +66,22 @@ def test_app():
     # max_seconds_without_callback = 10
     # result = app_test_suite.watch_riaps_app(event_q, app_spec, max_seconds_without_callback=max_seconds_without_callback)
 
-    # input("Press enter when ready to inject fault: ")
-    # # Inject fault
-    # injector = Injector(ip="172.21.20.40")
+    input("Press enter when ready to inject fault: ")
+    # Inject fault
+    injector = Injector(ip="172.21.20.40")
+
+    msg = {
+        "function": "on_tick",
+        "patch": "faulty_on_tick"
+    }
+    injector.send_request(msg)
     #
-    # msg = {
-    #     "function": "on_tick",
-    #     "patch": "faulty_on_tick"
-    # }
-    # injector.send_request(msg)
-    # #
-    # input("Press enter when ready to revert fault: ")
-    # msg = {
-    #     "function": "on_tick",
-    #     "patch": "revert"
-    # }
-    # injector.send_request(msg)
+    input("Press enter when ready to revert fault: ")
+    msg = {
+        "function": "on_tick",
+        "patch": "revert"
+    }
+    injector.send_request(msg)
 
     result = input("Press enter to terminate the app: ")
 
