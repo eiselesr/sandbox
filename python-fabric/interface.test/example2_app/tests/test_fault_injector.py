@@ -24,11 +24,6 @@ class AppTestSpec(TestSpec):
         super().callback(event_source)
 
 
-def faulty_on_tick(self):
-    now = self.tick.recv_pyobj()
-    self.logger.info(f"TestInterface | faulty on_tick | now: {now}")
-
-
 def test_sanity():
     assert True
 
@@ -48,7 +43,7 @@ def test_app():
 
     # Set up the app
     app_name = "Demo"
-    clients = ['172.21.20.40']
+    clients = ['172.21.20.50']
 
     # Launch the app
     c = test_api.launch_riaps_app(
@@ -68,7 +63,7 @@ def test_app():
 
     input("Press enter when ready to inject fault: ")
     # Inject fault
-    injector = Injector(ip="172.21.20.40")
+    injector = Injector(ip="172.21.20.50")
 
     msg = {
         "function": "on_tick",

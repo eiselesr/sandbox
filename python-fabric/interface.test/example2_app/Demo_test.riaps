@@ -2,26 +2,26 @@ app Demo
 {
     // The fault injection app is a simple app that injects faults into the system
 
-    message pytest_cmd;
+    message pytest_cmd;  // Required for monkey patching
 
     library app;
-    library test_suite;
+    library test_suite;  // Required for monkey patching
 
     device DemoDevice_test()
     {
-    	inside pytest_cmd_port;
-    	pub pub_pytest_cmd : pytest_cmd;
+    	inside pytest_cmd_port;  // Required for monkey patching
+    	pub pub_pytest_cmd : pytest_cmd;  // Required for monkey patching
     }
 
     component DemoComponent_test()
     {
         timer tick 1000;
-        sub sub_pytest_cmd : pytest_cmd;
+        sub sub_pytest_cmd : pytest_cmd;  // Required for monkey patching
     }
 		
 	real-time actor DemoActor()
 	{
-	    internal pytest_cmd;
+	    internal pytest_cmd;  // Required for monkey patching
 		{
 		    demo_comp  : DemoComponent_test();
 			demo_device  : DemoDevice_test();

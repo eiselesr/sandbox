@@ -3,7 +3,7 @@ app Demo
     // The fault injection app is a simple app that injects faults into the system
 
     library app;
-    library test_suite;
+    library test_suite;  // Required for monkey patching
 
     device DemoDevice_test()
     {
@@ -13,7 +13,7 @@ app Demo
 	real-time actor DemoDeviceActor()
 	{
 		{ 
-			demo_device  : DemoDevice_test();
+			demo_device  : DemoDevice_test();  // Required for monkey patching
 		}
 	}
 }

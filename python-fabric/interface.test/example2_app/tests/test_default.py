@@ -42,7 +42,7 @@ def test_app():
 
     # Set up the app
     app_name = "Demo"
-    clients = ['172.21.20.40']
+    clients = ['172.21.20.50']
 
     # Launch the app
     c = test_api.launch_riaps_app(

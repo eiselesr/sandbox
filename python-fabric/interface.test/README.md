@@ -9,4 +9,3 @@ To use monkey patch
 
 
 * Next steps
-    * Some additional work is needed to patch non-device components since they cannot start an external thread to run the injection server.

@@ -35,20 +35,20 @@ def test_sanity():
 
 def test_app():
     # Set up the shared event queue
-    event_q = queue.Queue()
-    log_file_path = str(pathlib.Path(__file__).parents[1]) + "/server_logs"
-
-    # Set up the event handler with the event queue
-    file_event_handler = FileSystemEventHandlerWatchdog(event_q=event_q)
-
-    # Set up the observer with the event handler
-    observer = watchdog.observers.Observer()
-    observer.schedule(file_event_handler, path=log_file_path, recursive=False)
-    observer.start()
-
+    # event_q = queue.Queue()
+    # log_file_path = str(pathlib.Path(__file__).parents[1]) + "/server_logs"
+    #
+    # # Set up the event handler with the event queue
+    # file_event_handler = FileSystemEventHandlerWatchdog(event_q=event_q)
+    #
+    # # Set up the observer with the event handler
+    # observer = watchdog.observers.Observer()
+    # observer.schedule(file_event_handler, path=log_file_path, recursive=False)
+    # observer.start()
+    #
     # Set up the app
     app_name = "Demo"
-    clients = ['172.21.20.40']
+    clients = ['172.21.20.50']
 
     # Launch the app
     c = test_api.launch_riaps_app(
@@ -68,7 +68,7 @@ def test_app():
 
     input("Press enter when ready to inject fault: ")
     # Inject fault
-    injector = Injector(ip="172.21.20.40")
+    injector = Injector(ip="172.21.20.50")
 
     msg = {
         "function": "on_tick",
@@ -88,7 +88,7 @@ def test_app():
     # Stop the app
     test_api.terminate_riaps_app(c, app_name)
     # Stop the observer
-    observer.stop()
+    # observer.stop()
 
     # Check criteria for successful test
     error_conditions = ["max_seconds_without_callback exceeded"]

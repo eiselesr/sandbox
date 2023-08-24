@@ -8,9 +8,6 @@ import zmq
 
 
 class Injector:
-    """
-    Used to send requests to the InjectionServer from pytest
-    """
     def __init__(self, ip="172.21.20.70"):
         address = f"tcp://{ip}:5555"
         self.context = zmq.Context()
@@ -35,13 +32,8 @@ class Injector:
 
 
 class InjectionServer(threading.Thread):
-    """
-    Used to receive requests from pytest and patch functions in the RIAPS app
-    """
-    def __init__(self, logger=None, handler=None):
+    def __init__(self, logger=None, handler=None, riaps_port=None):
         super().__init__()
-
-        self.handler = handler
 
         if logger is None:
             # If no logger is provided, use the basicConfig logger
@@ -50,6 +42,15 @@ class InjectionServer(threading.Thread):
         else:
             # Use the provided logger
             self.logger = logger
+
+        self.handler = handler
+        if riaps_port:
+            self.riaps_port = riaps_port
+            self.riaps_plug = riaps_port.setupPlug(self)
+            self.logger.debug(f"InjectionServer | riaps_plug: {self.riaps_plug} "
+                              f"plug identity: {self.riaps_plug.identity}"
+                              f"socket name: {riaps_port.instName}")
+            # self.poller.register(self.riaps_plug, zmq.POLLIN)
 
         self.context = zmq.Context()
         self.socket = self.context.socket(zmq.ROUTER)
@@ -69,6 +70,8 @@ class InjectionServer(threading.Thread):
                 self.logger.info(f"Received request from client {identity}: {request}")
                 if self.handler is not None:
                     self.handler(request["function"], request["patch"])
+                if self.riaps_plug is not None:
+                    self.riaps_plug.send_pyobj(request)
 
     def close(self):
         self.socket.close()
@@ -91,9 +94,9 @@ class TestInterface:
             # Use the provided logger
             self.logger = logger
 
-        self.test_server_thread = InjectionServer(logger=self.logger,
-                                                  handler=self.patch_function)
-        self.test_server_thread.start()
+        # self.test_server_thread = InjectionServer(logger=self.logger,
+        #                                           handler=self.patch_function)
+        # self.test_server_thread.start()
 
     def revert_patch(self, function_name):
         original_function = getattr(self.app.__class__, function_name)
