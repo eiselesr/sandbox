@@ -2,6 +2,7 @@ import abc
 import os
 import pathlib
 import queue
+import threading
 import time
 import watchdog.events
 import watchdog.observers
@@ -32,20 +33,31 @@ class FileSystemEventHandlerWatchdog(EventHandler, watchdog.events.FileSystemEve
     def write_event_q(self, event):
         self.event_q.put(f"{event.src_path}")
 
-class FileObserver:
-    def __init__(self, event_q, file_path):
-        file_event_handler = FileSystemEventHandlerWatchdog(event_q=event_q)
-        self.observer = watchdog.observers.Observer()
-        self.observer.schedule(file_event_handler, path=file_path, recursive=False)
-        self.start()
 
-    def start(self):
-        self.observer.start()
+class FileObserverThread(threading.Thread):
+    def __init__(self, event_q, folder_to_monitor):
+        super().__init__()
+        self.event_q = event_q
+        self.folder_to_monitor = folder_to_monitor
+        self.is_running = False
+        self.observer = watchdog.observers.Observer()
+
+    def run(self):
+        try:
+            self.is_running = True
+            file_event_handler = FileSystemEventHandlerWatchdog(event_q=self.event_q)
+            self.observer.schedule(file_event_handler, path=self.folder_to_monitor, recursive=False)
+            self.observer.start()
+            while self.is_running:
+                time.sleep(1)
+        except Exception as e:
+            print(f"Exception in FileObserverThread: {e}")
+        finally:
+            self.observer.stop()
+            self.observer.join()
 
     def stop(self):
-        self.observer.stop()
-
-
+        self.is_running = False
 
 def launch_riaps_app(
         app_folder_path=str(pathlib.Path(__file__).parents[1]),
@@ -128,6 +140,21 @@ def terminate_riaps_app(c, app_name):
     print("Stop controller")
     c.stop()
     print("controller stopped")
+
+
+class TestController(threading.Thread):
+    def __init__(self):
+        super().__init__()
+        self.terminated = threading.Event()
+
+    def run(self):
+        while not self.terminated.is_set():
+            time.sleep(1)
+
+    def stop(self):
+        self.terminated.set()
+
+
 
 
 
